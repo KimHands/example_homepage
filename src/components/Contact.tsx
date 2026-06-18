@@ -41,7 +41,10 @@ export default function Contact() {
     setSubmitting(true);
     window.setTimeout(() => {
       setSubmitting(false);
-      setToast({ type: "success", text: "메시지가 전송되었습니다. 곧 회신드릴게요!" });
+      setToast({
+        type: "success",
+        text: "제안이 전송되었습니다. IR팀이 곧 회신드립니다.",
+      });
       form.reset();
     }, 600);
   }
@@ -50,15 +53,15 @@ export default function Contact() {
     <section id="contact" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
       <div className="grid gap-16 md:grid-cols-[1fr_1.1fr]">
         <Reveal>
-          <p className="eyebrow mb-4">05 — Contact</p>
+          <p className="eyebrow mb-4">05 — Invest</p>
           <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            함께 만들 제품이 있다면
+            OpenAI와 함께
             <br />
-            언제든 연락 주세요.
+            다음 시대를 만들 파트너를 찾습니다.
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-muted">
-            채용·외주·협업 어떤 제안이든 환영합니다. 폼을 남겨주시거나 아래
-            채널로 직접 연락 주시면 빠르게 회신드리겠습니다.
+            전략적 투자·파트너십 제안을 환영합니다. 아래 양식을 남겨주시면 IR팀이
+            빠르게 회신드립니다. 직접 연락도 가능합니다.
           </p>
 
           <div className="mt-10 space-y-3">
@@ -102,7 +105,7 @@ export default function Contact() {
                 className="form-input"
               />
             </Field>
-            <Field label="회사 / 소속" name="company" optional>
+            <Field label="기관 / 펀드명" name="company" optional>
               <input
                 id="company"
                 name="company"
@@ -111,7 +114,12 @@ export default function Contact() {
                 className="form-input"
               />
             </Field>
-            <Field label="메시지" name="message" error={errors.message} required>
+            <Field
+              label="투자 관심 및 메시지"
+              name="message"
+              error={errors.message}
+              required
+            >
               <textarea
                 id="message"
                 name="message"
@@ -125,7 +133,7 @@ export default function Contact() {
               disabled={submitting}
               className="w-full rounded-full bg-accent px-6 py-3.5 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
             >
-              {submitting ? "전송 중…" : "메시지 보내기"}
+              {submitting ? "전송 중…" : "투자 제안 보내기"}
             </button>
           </form>
         </Reveal>

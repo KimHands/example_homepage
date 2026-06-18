@@ -8,8 +8,8 @@
   --foreground: #ecebe6;
   --muted: #9aa0a8;
   --faint: #6b717a;
-  --accent: #c7f24d;
-  --accent-foreground: #0b0c0e;
+  --accent: #10a37f;
+  --accent-foreground: #ffffff;
   --border: rgba(236, 235, 230, 0.1);
   --border-strong: rgba(236, 235, 230, 0.2);
 }
@@ -101,7 +101,7 @@ body {
   background:
     radial-gradient(
       60% 50% at 50% 0%,
-      rgba(199, 242, 77, 0.08) 0%,
-      rgba(199, 242, 77, 0) 70%
+      rgba(16, 163, 127, 0.12) 0%,
+      rgba(16, 163, 127, 0) 70%
     );
 }

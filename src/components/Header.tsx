@@ -75,7 +75,7 @@ export default function Header() {
             href="#contact"
             className="hidden rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90 md:inline-block"
           >
-            연락하기
+            투자 문의
           </a>
 
           {/* Mobile menu toggle */}
@@ -128,7 +128,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 className="mt-2 mb-3 inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground"
               >
-                연락하기
+                투자 문의
               </a>
             </li>
           </ul>

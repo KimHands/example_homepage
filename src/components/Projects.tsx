@@ -25,10 +25,14 @@ export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
       <Reveal className="mb-14">
-        <p className="eyebrow mb-4">03 — Projects</p>
+        <p className="eyebrow mb-4">03 — Portfolio</p>
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          대표 프로젝트
+          제품 &amp; 벤처
         </h2>
+        <p className="mt-4 max-w-xl leading-relaxed text-muted">
+          하나의 제품이 아니라, 카테고리를 만들어 온 연속된 성공. 카드를 눌러
+          상세 임팩트를 확인하세요.
+        </p>
       </Reveal>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -117,9 +121,9 @@ function ProjectModal({
         </ul>
 
         <div className="mt-8 space-y-6">
-          <DetailBlock label="문제 정의" text={project.problem} />
-          <DetailBlock label="역할 / 기여" text={project.contribution} />
-          <DetailBlock label="결과 / 성과" text={project.result} accent />
+          <DetailBlock label="개요" text={project.problem} />
+          <DetailBlock label="역할 / 지위" text={project.contribution} />
+          <DetailBlock label="임팩트 / 성과" text={project.result} accent />
         </div>
 
         {(project.demoUrl || project.repoUrl) && (

@@ -11,13 +11,13 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-6xl px-6 py-32">
         <p className="eyebrow reveal is-visible mb-6">
-          {profile.role} · {profile.location}
+          {profile.nameEn} · {profile.role}
         </p>
 
         <h1 className="text-balance max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
-          안녕하세요,
+          AGI가 모든 인류에게
           <br />
-          <span className="text-muted">{profile.name}</span>입니다.
+          <span className="text-muted">이롭도록</span> 만듭니다.
         </h1>
 
         <p className="text-balance mt-8 max-w-xl text-lg leading-relaxed text-muted">
@@ -26,16 +26,16 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
-            href="#projects"
+            href="#contact"
             className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
           >
-            프로젝트 보기
+            투자 제안하기
           </a>
           <a
-            href="#contact"
+            href="#skills"
             className="rounded-full border border-border-strong px-6 py-3 text-sm font-medium transition-colors hover:bg-surface"
           >
-            연락하기
+            성장 지표 보기
           </a>
           <div className="ml-1 flex items-center gap-1">
             <a

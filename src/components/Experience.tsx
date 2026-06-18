@@ -9,9 +9,9 @@ export default function Experience() {
     >
       <div className="mx-auto max-w-6xl px-6 py-28 md:py-36">
         <Reveal className="mb-14">
-          <p className="eyebrow mb-4">04 — Experience</p>
+          <p className="eyebrow mb-4">04 — Journey</p>
           <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            경력
+            여정
           </h2>
         </Reveal>
 

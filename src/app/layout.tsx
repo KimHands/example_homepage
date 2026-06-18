@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "김도현 · Frontend Developer",
+  title: "Sam Altman · OpenAI — Investment",
   description:
-    "복잡한 요구사항을 가볍고 안정적인 사용자 경험으로 옮기는 6년차 프론트엔드 개발자 김도현의 포트폴리오.",
+    "OpenAI 공동 창업자이자 CEO 샘 알트먼. 기업가치 $852B, 주간 900M+ 사용자, ARR $25B+. 안전한 AGI를 향한 다음 시대를 함께 만들 투자 파트너를 찾습니다.",
   openGraph: {
-    title: "김도현 · Frontend Developer",
+    title: "Sam Altman · OpenAI — Investment",
     description:
-      "복잡한 요구사항을 가볍고 안정적인 사용자 경험으로 옮기는 프론트엔드 개발자 포트폴리오.",
+      "안전한 AGI를 향한 다음 시대. OpenAI 투자·파트너십 제안을 환영합니다.",
     type: "website",
   },
 };
