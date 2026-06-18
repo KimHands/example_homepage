@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 프론트엔드 개발자 포트폴리오 — 기능 명세서
 
-## Getting Started
+> 기업 대상 1인 프론트엔드 개발자 포트폴리오 사이트.
+> **원페이지 + 세로 스크롤** 구조로, 방문 기업이 한 번의 스크롤로 역량·경력·연락처를 파악할 수 있게 한다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 1. 기획 개요
+
+| 항목 | 내용 |
+| --- | --- |
+| 목표 | 기업/클라이언트에게 전문성과 신뢰감을 주고, 연락(리드)으로 전환 |
+| 타깃 | 채용 담당자, 외주 의뢰 기업, 협업 파트너 |
+| 형식 | Single Page Application (1페이지, 세로 스크롤) |
+| 핵심 지표(KPI) | 연락처/문의 전환율, 프로젝트 상세 조회율, 이력서 다운로드 수 |
+| 톤앤매너 | 세련됨, 미니멀, 전문성 — 과한 장식 배제, 여백·타이포 중심 |
+
+---
+
+## 2. 화면 구조 (스크롤 순서)
+
+스크롤 흐름 자체가 "이 사람은 누구인가 → 무엇을 할 수 있나 → 무엇을 했나 → 어떻게 연락하나"의 설득 시나리오가 되도록 배치한다.
+
+```
+[고정 헤더(GNB)]
+  1. Hero (첫인상 / 핵심 한 줄)
+  2. About (소개 / 강점)
+  3. Skills (기술 스택)
+  4. Projects (대표 프로젝트)
+  5. Experience (경력 / 타임라인)
+  6. Contact (연락 / 문의)
+[푸터]
+[플로팅: Top 버튼]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 3. 섹션별 기능 명세
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3.0 공통 — 고정 헤더 (GNB)
+- 화면 상단 고정(sticky). 스크롤 시 배경 반투명/블러 처리로 가독성 확보.
+- 메뉴 클릭 시 해당 섹션으로 **부드러운 스크롤 이동(smooth scroll)**.
+- 현재 보고 있는 섹션 메뉴를 **활성 표시(scroll-spy)**.
+- 모바일에서는 햄버거 메뉴로 전환.
+- 우측에 핵심 CTA 버튼(`연락하기` 또는 `이력서 다운로드`) 상시 노출.
 
-## Learn More
+### 3.1 Hero — 첫인상
+- 이름, 직무(예: Frontend Developer), **한 줄 핵심 가치 제안** 카피.
+- 주요 CTA 2개: `프로젝트 보기`(아래로 스크롤), `연락하기`.
+- 보조 정보: 주요 기술 키워드, GitHub/LinkedIn 링크 아이콘.
+- 진입 시 가벼운 페이드/슬라이드 등장 애니메이션.
 
-To learn more about Next.js, take a look at the following resources:
+### 3.2 About — 소개
+- 프로필 이미지 + 자기소개(2~3문단, 기업 관점의 강점 중심).
+- **핵심 강점 3~4개**를 아이콘 카드로 요약(예: 반응형 구현력, 성능 최적화, 협업/커뮤니케이션).
+- 경력 연차·주요 도메인 등 숫자 지표 강조(선택).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3.3 Skills — 기술 스택
+- 카테고리별 분류: `Language` / `Framework·Library` / `Tooling` / `Collaboration`.
+- 각 기술을 아이콘 + 라벨 형태로 표시. 숙련도 표현은 단계 라벨(능숙/사용 가능)로 간결하게.
+- 스크롤 진입 시 순차 등장 애니메이션.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3.4 Projects — 대표 프로젝트 *(핵심 섹션)*
+- 프로젝트를 **카드 그리드**로 나열(반응형: 데스크톱 2~3열 → 모바일 1열).
+- 카드 구성: 썸네일, 제목, 한 줄 설명, 사용 기술 태그, `자세히 보기`.
+- 카드 클릭 시 **모달(또는 확장 영역)**로 상세 노출:
+  - 문제 정의 → 역할/기여 → 사용 기술 → 결과/성과 → 배운 점.
+  - 외부 링크: `Live Demo`, `GitHub Repo`.
+- (선택) 기술 태그로 필터링하는 기능.
 
-## Deploy on Vercel
+### 3.5 Experience — 경력 / 타임라인
+- 회사·기간·직책·핵심 업무를 **세로 타임라인**으로 시각화.
+- 각 항목에 성과를 정량(수치) 중심으로 1~2줄 기재.
+- (선택) `이력서(PDF) 다운로드` 버튼.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3.6 Contact — 연락 / 문의 *(전환 섹션)*
+- 문의 폼: `이름`, `이메일`, `회사/소속(선택)`, `메시지`.
+- **클라이언트 측 유효성 검사**(필수값, 이메일 형식) + 전송 결과 피드백(성공/실패 토스트).
+- 직접 연락 수단 병기: 이메일 주소, GitHub, LinkedIn(클릭 시 복사/이동).
+- 폼 미사용 시 대안으로 `mailto:` 링크 제공 가능.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3.7 공통 — 푸터 & 플로팅
+- 푸터: 이름, 저작권, 소셜 링크.
+- **Top 버튼**: 일정 스크롤 이후 우하단 노출, 클릭 시 최상단으로 부드럽게 이동.
+
+---
+
+## 4. 공통 기능 / 비기능 요구사항
+
+| 구분 | 요구사항 |
+| --- | --- |
+| 반응형 | 모바일/태블릿/데스크톱 대응 (모바일 우선) |
+| 스크롤 UX | 섹션 간 smooth scroll, scroll-spy 활성 메뉴 |
+| 애니메이션 | 스크롤 진입 시 등장 효과(과하지 않게), 60fps 유지 |
+| 접근성 | 시맨틱 마크업, 키보드 포커스, 이미지 alt, 충분한 명도 대비 |
+| 성능 | 이미지 최적화/지연 로딩, 빠른 초기 로딩(LCP 개선) |
+| SEO | 메타 태그, OG 태그, 적절한 제목 구조(h1~h3) |
+| 다크모드 | 시스템 설정 연동(선택) |
+| 다국어 | 기업 대상 영문 노출 옵션(선택, 확장 고려) |
+
+---
+
+## 5. 기술 스택
+
+- **Framework**: Next.js 16 (App Router) + React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **배포(예정)**: Vercel
+
+> 구현 시 Next.js 16의 변경된 API는 `node_modules/next/dist/docs/` 가이드를 우선 확인한다. (자세한 내용은 `CLAUDE.md` 참고)
+
+---
+
+## 6. 개발 우선순위 (제안)
+
+1. **MVP**: 헤더 + Hero + About + Skills + Projects(상세 모달) + Contact + 반응형
+2. **2차**: 스크롤 애니메이션, scroll-spy, Top 버튼, 이력서 다운로드
+3. **확장**: 프로젝트 필터, 다크모드, 다국어, 문의 폼 백엔드 연동
