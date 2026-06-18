@@ -24,6 +24,11 @@ export default function Hero() {
           {profile.tagline}
         </p>
 
+        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs text-muted">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-400" />
+          커서 학습을 위해 테스트 중인 페이지 입니다.
+        </p>
+
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <a
             href="#contact"

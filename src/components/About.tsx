@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { profile, thesis } from "@/lib/data";
 import { ResponsiveIcon, GaugeIcon, ChatIcon } from "@/components/icons";
@@ -15,10 +16,38 @@ export default function About() {
       </Reveal>
 
       <div className="grid gap-16 md:grid-cols-[1.4fr_1fr]">
-        <Reveal className="space-y-5 text-base leading-relaxed text-muted">
-          {profile.intro.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
+        <Reveal className="flex flex-col gap-8 sm:flex-row sm:items-start">
+          {/* 포트폴리오 톤에 맞춘 듀오톤 인물 사진 (호버 시 컬러) */}
+          <figure className="group shrink-0">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border bg-surface sm:w-44">
+              <Image
+                src="/sam-altman.jpg"
+                alt="Sam Altman, Co-Founder & CEO of OpenAI"
+                fill
+                sizes="(max-width: 640px) 100vw, 176px"
+                className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-accent/25 mix-blend-color transition-opacity duration-500 group-hover:opacity-0" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            </div>
+            <figcaption className="mt-2 text-[11px] leading-snug text-faint">
+              Photo: Steve Jennings / TechCrunch ·{" "}
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_(cropped).jpg"
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-border underline-offset-2 hover:text-muted"
+              >
+                CC BY 2.0
+              </a>
+            </figcaption>
+          </figure>
+
+          <div className="space-y-5 text-base leading-relaxed text-muted">
+            {profile.intro.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </Reveal>
 
         <div className="space-y-4">
